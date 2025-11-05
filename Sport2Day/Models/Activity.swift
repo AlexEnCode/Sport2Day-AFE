@@ -56,9 +56,9 @@ var activityPreview = Activity(
     activityPlayers: 2)
 
     let sampleActivities: [Activity] = {
-    let level3 = Level(levelName: "Novice", levelColor: "noviceGreen")
-    let level2 = Level(levelName: "Professionnel", levelColor: "proBlue")
-    let level = Level(levelName: "Intermédiaire", levelColor: "amatorBronze")
+    let level3 = Level(levelName: "NOVICE", levelColor: "noviceGreen")
+    let level2 = Level(levelName: "PRO", levelColor: "proBlue")
+    let level = Level(levelName: "INTER", levelColor: "interPurple")
     let sport1 = Sport(sportName: "Basketball", sportLogo: "basketball.fill")
     let sport2 = Sport(sportName: "Football", sportLogo: "soccerball")
     let sport3 = Sport(sportName: "Running", sportLogo: "figure.run")
@@ -161,6 +161,7 @@ var activityPreview = Activity(
             
     ]
 }()
+
 
 
 

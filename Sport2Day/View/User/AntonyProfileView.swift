@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AntonyProfileView: View {
     
-    @Environment(\.dismiss) var dismiss
+   
     
     var body: some View {
           
@@ -20,21 +20,6 @@ struct AntonyProfileView: View {
                 Color(.bluePrimary)
                     .ignoresSafeArea()
                 ScrollView {
-                    
-// BOUTON DE FERMETURE POPUP
-                        ZStack(alignment: .trailing) {
-                            Button {
-                                dismiss()
-                            } label: {
-                                Spacer()
-                                Image(systemName: "xmark")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding(12)
-                                    .background(.ultraThinMaterial, in: Circle())
-                            }
-                        }
-                        .padding()
                     
                     VStack {
                         ZStack(alignment: .top) {
@@ -56,7 +41,7 @@ struct AntonyProfileView: View {
                                             Image("queerGenderDark")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 40, height: 40)
+                                                .frame(width: 20, height: 20)
 
                                         }
                                     }
@@ -272,6 +257,7 @@ struct AntonyProfileView: View {
                         }
                         .padding(.top, 4)
                     }
+                    .padding(.top, 50)
                 }
             }
         }

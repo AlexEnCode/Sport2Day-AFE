@@ -11,7 +11,6 @@ import SwiftUI
 
 struct CarlosProfileView: View {
     
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
           
@@ -21,22 +20,7 @@ struct CarlosProfileView: View {
                 Color(.bluePrimary)
                     .ignoresSafeArea()
                 ScrollView {
-                    
-// BOUTON DE FERMETURE POPUP
-                        ZStack(alignment: .trailing) {
-                            Button {
-                                dismiss()
-                            } label: {
-                                Spacer()
-                                Image(systemName: "xmark")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding(12)
-                                    .background(.ultraThinMaterial, in: Circle())
-                            }
-                        }
-                        .padding()
-                    
+                            
                     VStack {
                         ZStack(alignment: .top) {
                             RoundedRectangle(cornerRadius: 16)
@@ -293,6 +277,7 @@ struct CarlosProfileView: View {
                         }
                         .padding(.top, 4)
                     }
+                    .padding(.top, 50)
                 }
             }
         }

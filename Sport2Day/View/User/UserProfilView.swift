@@ -243,7 +243,7 @@ struct UserProfilView: View {
                     
                 }
             }
-// MODIFIER PROFIL: 
+// MODIFIER PROFIL:
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination : UserModifyView()) {

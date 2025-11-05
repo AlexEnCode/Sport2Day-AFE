@@ -5,11 +5,10 @@
 //  Created by Emilie on 04/11/2025.
 
 
+
 import SwiftUI
 
 struct JulieProfileView: View {
-    
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
           
@@ -19,21 +18,6 @@ struct JulieProfileView: View {
                 Color(.bluePrimary)
                     .ignoresSafeArea()
                 ScrollView {
-                    
-// BOUTON DE FERMETURE POPUP
-                        ZStack(alignment: .trailing) {
-                            Button {
-                                dismiss()
-                            } label: {
-                                Spacer()
-                                Image(systemName: "xmark")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding(12)
-                                    .background(.ultraThinMaterial, in: Circle())
-                            }
-                        }
-                        .padding()
                     
                     VStack {
                         ZStack(alignment: .top) {
@@ -308,6 +292,7 @@ struct JulieProfileView: View {
                         }
                             .padding(.top, 4)
                     }
+                    .padding(.top, 60)
                 }
             }
         }
