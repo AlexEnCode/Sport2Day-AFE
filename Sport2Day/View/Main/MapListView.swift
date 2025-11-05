@@ -11,13 +11,15 @@ struct MapListView: View {
     let activities: [Activity]
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                ForEach(activities) { activity in
-                    SportCellView(activity: activity)
+        NavigationStack{
+            ScrollView {
+                
+                VStack(spacing: 16) {
+                    ForEach(activities) { activity in
+                        SportCellView(activity: activity)
+                    }
                 }
             }
-            .padding()
         }
     }
 }

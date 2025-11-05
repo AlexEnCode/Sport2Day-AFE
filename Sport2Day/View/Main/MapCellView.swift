@@ -14,6 +14,7 @@ struct MapCellView: View {
     let activities: [Activity]
     @Binding var selectedActivity: Activity?
     
+    @State private var showDescriptionPopup = false
     
     @State private var annotations: [ActivityAnnotation] = []
     @State private var isLoading = false
@@ -43,6 +44,8 @@ struct MapCellView: View {
                     
                     Annotation(title, coordinate: coord) {
                         Button {
+                 //           NavigationLink(destination: ActivityInfoView(selectedActivity: selectedActivity))
+                        
                             selectedActivity = act
                         } label: {
                             CustomActivityPinView(

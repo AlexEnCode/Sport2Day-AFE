@@ -7,7 +7,7 @@ import SwiftUI
 import SwiftData
 
 @Model
-class Activity : Identifiable {
+class Activity : Identifiable, Hashable {
     @Attribute(.unique) var activityID = UUID()
     var activityOrganizer: User
     var activityLocation: String

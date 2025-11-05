@@ -28,11 +28,12 @@ struct Sport2DayApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
+    
             MainTabView()
                 .modelContainer(container)
                 .task {
                     await SeedData.load(in: container)
-                    
                 }
         }
     }

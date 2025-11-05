@@ -28,5 +28,6 @@ class Level: Identifiable {
 var levelData = [
     Level(levelName: "Professionnel", levelColor: "proBlue"),
     Level(levelName: "Intermédiaire", levelColor: "amatorBronze"),
-    Level(levelName: "Novice", levelColor: "noviceGreen")
+    Level(levelName: "Novice", levelColor: "noviceGreen"),
+    Level(levelName: "Tous", levelColor: "allYellow")
 ]

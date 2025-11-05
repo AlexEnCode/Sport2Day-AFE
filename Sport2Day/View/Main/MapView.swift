@@ -130,7 +130,7 @@ struct MapView: View {
                                             if showListView {
                                                 RoundedRectangle(cornerRadius: 8)
                                                     .fill(Color.orangePrimary)
-                                                    .matchedGeometryEffect(id: "tab", in: animation)
+                                //                    .matchedGeometryEffect(id: "tab", in: animation)
                                             }
                                         }
                                     )
@@ -147,6 +147,7 @@ struct MapView: View {
                 // --- Carte ou Liste ---
                 if showListView {
                     MapListView(activities: filteredActivities)
+                        .background(Color("bluePrimary").ignoresSafeArea())
                         .transition(.opacity)
                         .padding(.horizontal, 8)
                         .padding(.bottom, 16)
