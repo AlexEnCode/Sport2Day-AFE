@@ -30,7 +30,7 @@ struct Sport2DayApp: App {
         WindowGroup {
             
     
-            MainTabView()
+            SplashView()
                 .modelContainer(container)
                 .task {
                     await SeedData.load(in: container)

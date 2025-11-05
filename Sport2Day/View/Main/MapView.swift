@@ -49,6 +49,9 @@ struct MapView: View {
                 headerSection
                 contentSection
             }
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+
 
             // Floating Action Button
             floatingActionButton

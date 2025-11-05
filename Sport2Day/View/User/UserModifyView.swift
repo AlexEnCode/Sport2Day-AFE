@@ -25,11 +25,11 @@ struct UserModifyView: View {
                 VStack(spacing: 25) {
                     
                     // Icone fermeture
-                    HStack {
-                        Spacer()
-                        Image(systemName: "xmark")
-                            .font(.system(size: 20))
-                    }
+//                    HStack {
+//                        Spacer()
+//                        Image(systemName: "xmark")
+//                            .font(.system(size: 20))
+//                    }
                     
                     // Photo de profil
                     VStack(spacing: 10) {

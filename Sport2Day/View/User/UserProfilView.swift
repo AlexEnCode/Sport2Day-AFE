@@ -9,12 +9,18 @@ struct UserProfilView: View {
             
             
             ZStack {
-                
+
                 Color(.bluePrimary)
                     .ignoresSafeArea()
+
                 ScrollView {
+                   
                     VStack {
                         
+                        
+                        
+                        
+
                         ZStack(alignment: .top) {
                             RoundedRectangle(cornerRadius: 16)
                                 .strokeBorder(Color.white, lineWidth: 2)
@@ -30,7 +36,7 @@ struct UserProfilView: View {
                                                 .frame(width: 50, height : 50)
                                                 .overlay(
                                                     RoundedRectangle(cornerRadius: 8) .stroke(Color.white, lineWidth : 2))
-                                            
+
                                             Image("queerGenderDark")
                                                 .resizable()
                                                 .scaledToFit()
@@ -60,10 +66,22 @@ struct UserProfilView: View {
                                         RoundedRectangle(cornerRadius: 8)
                                             .foregroundColor(.orangePrimary)
                                             .frame(width : 200, height : 60)
-                                        Text("ERIKA")
+                                       
+                                        HStack {
+                                        Text("ERIKA    ")
                                             .foregroundColor(.white)
                                             .font(.title)
                                             .fontWeight(.bold)
+                                        
+                                            
+                                            NavigationLink(destination : UserModifyView()) {
+                                                Image(systemName: "square.and.pencil")
+                                                    .foregroundStyle(.white)
+                                                    .font(.system(size: 20))
+                                                    .bold()
+
+                                }
+                                        }
                                     }
                                         .padding(.top, -30),
                                     alignment : .top
@@ -239,20 +257,20 @@ struct UserProfilView: View {
                         }
                         .padding(.top, 4)
                     }
-                    .padding(.top)
+                    .padding(.top, 50)
                     
                 }
             }
 // MODIFIER PROFIL:
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination : UserModifyView()) {
-                        Image(systemName: "ellipsis")
-                    }
-                }
+           // .toolbar {
+           //     ToolbarItem(placement: .navigationBarTrailing) {
+           //         NavigationLink(destination : UserModifyView()) {
+           //             Image(systemName: "ellipsis")
+           //         }
+           //     }
             }
         }
-    }
+    
 }
 
 #Preview {

@@ -18,7 +18,7 @@ struct MainTabView: View {
                 )
             }
         }
-        .tint(.orangePrimary)
+        .tint(.white)
     }
 }
 

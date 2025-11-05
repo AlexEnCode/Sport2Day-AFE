@@ -167,27 +167,13 @@ struct RegisterView: View {
                             .padding(.vertical, 5)
                         
                         // MBouton S’inscrire
-                        Button {
-                            if validateForm() {
-                                let newUser = User(
-                                    name: userName,
-                                    email: userEmail,
-                                    password: userPassword,
-                                    location: userLocation,
-                                    description: userDescription,
-                                    photo: "" // à compléter plus tard si tu ajoutes l’upload photo
-                                )
-                                context.insert(newUser)
-                                try? context.save()
-                                print("✅ Nouvel utilisateur créé : \(newUser.userName)")
-                                dismiss()
-                            } else {
-                                showErrorAlert = true
-                            }
+                        NavigationLink {
+                           FirstAccessibilityView()
                         } label: {
                             Text("S’inscrire")
+                                .padding(12)
+                                .frame(maxWidth: .infinity)
                                 .font(.system(size: 18, weight: .black))
-                                .frame(maxWidth: .infinity, maxHeight: 52)
                                 .background(Color.orangePrimary)
                                 .foregroundColor(.white)
                                 .cornerRadius(12)
