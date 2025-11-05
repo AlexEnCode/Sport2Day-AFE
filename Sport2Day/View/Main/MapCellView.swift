@@ -25,6 +25,8 @@ struct MapCellView: View {
     
     var body: some View {
         ZStack {
+            Color(.bluePrimary)
+                .ignoresSafeArea()
             // Fond stylisé
             RoundedRectangle(cornerRadius: 24)
                 .fill(Color.containerGray)

@@ -26,6 +26,10 @@ struct SportCellView: View {
     var body: some View {
    
             ZStack {
+                
+                Color(.bluePrimary)
+                    .ignoresSafeArea()
+                
                 RoundedRectangle(cornerRadius: 14)
                     .fill(Color.white.opacity(0.1))
                     .shadow(radius: 2)

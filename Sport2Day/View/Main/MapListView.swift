@@ -11,12 +11,19 @@ struct MapListView: View {
     let activities: [Activity]
     
     var body: some View {
+       
         NavigationStack{
-            ScrollView {
-                
-                VStack(spacing: 16) {
-                    ForEach(activities) { activity in
-                        SportCellView(activity: activity)
+        ZStack{
+            Color(.bluePrimary)
+                .ignoresSafeArea()
+            
+           
+                ScrollView {
+                    
+                    VStack(spacing: 16) {
+                        ForEach(activities) { activity in
+                            SportCellView(activity: activity)
+                        }
                     }
                 }
             }
