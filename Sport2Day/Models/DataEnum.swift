@@ -2,7 +2,7 @@
 
 // MARK: - LEVEL
 enum LevelType: String, Codable, CaseIterable, Identifiable {
-    case all = "TOUT"
+    case all = "TOUS"
     case novice = "NOVICE"
     case inter = "INTER"
     case pro = "PRO"
@@ -13,7 +13,7 @@ enum LevelType: String, Codable, CaseIterable, Identifiable {
 
     var rawKey: String {
         switch self {
-        case .all:       return "TOUT"
+        case .all:       return "TOUS"
         case .novice:    return "NOVICE"
         case .inter:     return "INTER"
         case .pro:       return "PRO"

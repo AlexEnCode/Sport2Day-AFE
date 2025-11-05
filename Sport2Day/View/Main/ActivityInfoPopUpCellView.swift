@@ -14,7 +14,7 @@ struct ActivityInfoPopupCellView: View {
     var body: some View {
         VStack(spacing: 16) {
             // En-tête avec sport
-            HStack {
+            HStack(spacing: 8){
                 Image(systemName: activity.activitySport.sportLogo)
                     .font(.title2)
                     .foregroundColor(.white)
@@ -28,13 +28,13 @@ struct ActivityInfoPopupCellView: View {
                         .foregroundColor(.white.opacity(0.8))
                 }
             }
-
+            
             // Description
             Text(activity.activityDescription)
                 .font(.system(size: 15))
                 .foregroundColor(.white.opacity(0.9))
                 .lineLimit(3)
-
+            
             // Infos rapides
             HStack {
                 Label(activity.activityLocation, systemImage: "mappin.and.ellipse")
@@ -43,31 +43,33 @@ struct ActivityInfoPopupCellView: View {
             }
             .font(.caption)
             .foregroundColor(.white.opacity(0.8))
-
+            
             // Niveau + Genre
-            HStack {
-                Text(activity.activityLevel.levelName)
-                    .font(.headline)
-                    .foregroundStyle(Color(activity.activityLevel.levelColor))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-         //           .background(Capsule().stroke(Color(activity.activityLevel.levelColor), lineWidth: 2))
-
-                HStack(spacing: 4) {
-                    Image(activity.activityGenders.genderLogo)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 18)
-                    Text(activity.activityGenders.genderName)
-                }
-                .foregroundColor(.white)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 6)
-                .background(Color.white.opacity(0.2))
-                .cornerRadius(8)
-
-                Spacer()
+            LevelButton(
+                title: activity.activityLevel.levelName,
+                color: Color(activity.activityLevel.levelColor),
+                isSelected: true
+            ) {
             }
+
+            
+            
+            HStack(spacing: 4) {
+                Image(activity.activityGenders.genderLogo)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 18)
+                Text(activity.activityGenders.genderName)
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(Color.white.opacity(0.2))
+            .cornerRadius(8)
+            
+            Spacer()
+        
+    
 
             // Bouton Participer
             Button("Participer") {
@@ -87,9 +89,10 @@ struct ActivityInfoPopupCellView: View {
                 .opacity(0.96)
                 .cornerRadius(20)
         )
-        .padding(.horizontal, 32)
+        .padding(.horizontal, 8)
         .transition(.move(edge: .bottom).combined(with: .opacity))
     }
+
 
     private var formattedDateTime: String {
         let formatter = DateFormatter()

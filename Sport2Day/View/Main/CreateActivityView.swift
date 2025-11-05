@@ -664,6 +664,7 @@ struct CreateActivityView: View {
                                 }
 //                                .frame(maxWidth: .infinity)
                             }
+                            .padding(.leading, 10)
                         }
                     }
                     
@@ -872,7 +873,7 @@ struct LevelButton: View {
     var body: some View {
            Button(action: action) {
                Text(title)
-                   .font(.system(size: 20))
+                   .font(.system(size: 15))
                    .fontWeight(.bold)
                    .foregroundColor(isSelected ? color : .white)
                    .padding(.vertical, 6)
@@ -884,7 +885,7 @@ struct LevelButton: View {
                        ? color : .white, lineWidth: 2)
                    )
            }
-           .buttonStyle(PlainButtonStyle())
+         
        }
    }
 

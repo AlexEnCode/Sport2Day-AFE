@@ -155,7 +155,7 @@ struct MapView: View {
                     activities: filteredActivities,
                     selectedActivity: $selectedActivity
                 )
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea(edges: .bottom)
                 .padding(.horizontal, 8)
                 .padding(.top, 8)
                 .transition(.opacity)
@@ -204,7 +204,6 @@ struct MapView: View {
             ActivityInfoPopupCellView(activity: activity) {
                 dismissPopup()
             }
-            .padding(.horizontal, 20)
             .padding(.bottom, 150)
             .transition(.move(edge: .bottom).combined(with: .opacity))
             .zIndex(2)

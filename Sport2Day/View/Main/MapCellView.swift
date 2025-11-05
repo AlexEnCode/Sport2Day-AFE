@@ -28,14 +28,7 @@ struct MapCellView: View {
             Color(.bluePrimary)
                 .ignoresSafeArea()
             // Fond stylisé
-            RoundedRectangle(cornerRadius: 24)
-                .fill(Color.containerGray)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 24)
-                        .stroke(Color.black.opacity(0.3), lineWidth: 2)
-                )
-                .shadow(color: .black.opacity(0.5), radius: 12)
-                .padding(.horizontal, 16)
+
             
             // Map avec annotations observables
             Map(position: $position) {
@@ -73,7 +66,7 @@ struct MapCellView: View {
                 startPoint: .top,
                 endPoint: .bottom
             )
-            .frame(height: 120)
+            .frame(height: 180)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .allowsHitTesting(false)
             
