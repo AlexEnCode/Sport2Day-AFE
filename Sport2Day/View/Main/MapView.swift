@@ -193,25 +193,25 @@ struct MapView: View {
     //  Activity Popup (Animated from Bottom)
     @ViewBuilder
     private func activityPopup(activity: Activity) -> some View {
-        // Background dim
-        Color.black.opacity(0.1)
+        // Fond semi-transparent (clic dehors = fermer)
+        Color.black.opacity(0.4)
             .ignoresSafeArea()
-            .onTapGesture {
-                dismissPopup()
-            }
-            .zIndex(1)
+            .onTapGesture { dismissPopup() }
+            .transition(.opacity)
 
-        // Popup content
-        VStack {
-            Spacer()
-            ActivityInfoPopupCellView(activity: activity) {
-                dismissPopup()
-            }
-            .padding(.bottom, 150)
-            .transition(.move(edge: .bottom).combined(with: .opacity))
-            .zIndex(2)
-        }
+        // Popup centré
+        ActivityInfoPopupCellView(activity: activity, onDismiss: dismissPopup)
+            .frame(maxWidth: 300, maxHeight: 320)
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(Color("bluePrimary").opacity(0.97))
+                    .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
+            )
+            .padding(.horizontal, 32)
+            .transition(.scale(scale: 0.9).combined(with: .opacity))
     }
+    
 
     private func dismissPopup() {
         withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {

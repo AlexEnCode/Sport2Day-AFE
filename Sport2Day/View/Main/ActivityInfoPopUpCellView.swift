@@ -4,102 +4,141 @@
 // [Alex] 02/11 Mini-maj, à revoir
 
 
-
 import SwiftUI
+
 
 struct ActivityInfoPopupCellView: View {
     let activity: Activity
     let onDismiss: () -> Void
 
     var body: some View {
-        VStack(spacing: 16) {
-            // En-tête avec sport
-            HStack(spacing: 8){
-                Image(systemName: activity.activitySport.sportLogo)
-                    .font(.title2)
-                    .foregroundColor(.white)
-                Text(activity.activitySport.sportName)
-                    .font(.custom("BebasNeue-Regular", size: 28))
-                    .foregroundColor(.white)
-                Spacer()
-                Button(action: onDismiss) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.white.opacity(0.8))
+        VStack(spacing: 18) {
+            headerSection
+            
+            descriptionSection
+            
+
+                VStack( spacing: 16) {
+                    HStack{
+                        Image(systemName: "mappin.and.ellipse")
+                            .foregroundColor(.orangePrimary)
+                        Text(activity.activityLocation)
+                            .font(.caption)
+                            .foregroundStyle(.whitePrimary)
+                        Spacer()
+                    }
+                    HStack{
+                        Image(systemName: "clock")
+                            .foregroundColor(.orangePrimary)
+                        Text(formattedDateTime)
+                            .font(.caption)
+                            .foregroundStyle(.whitePrimary)
+                        Spacer()
+                    }
+
                 }
+        //    Label(formattedDateTime, systemImage: "clock")
+        //                          .foregroundColor(.orangePrimary)
+            
+            badgesSection
+            
+            Spacer(minLength: 12)
+            
+            participateButton
+        }
+        .padding(20)
+        .multilineTextAlignment(.leading)
+    }
+    
+    private var headerSection: some View {
+        HStack {
+            Image(systemName: activity.activitySport.sportLogo)
+                .font(.title2)
+                .foregroundColor(.white)
+            
+            Text(activity.activitySport.sportName.uppercased())
+                .font(.custom("BebasNeue-Regular", size: 26))
+                .foregroundColor(.white)
+                .lineLimit(1)
+            
+            Spacer()
+            
+            Button(action: onDismiss) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.title2)
+                    .foregroundColor(.white.opacity(0.8))
             }
+        }
+    }
+    
+   
+    private var descriptionSection: some View {
+        Text(activity.activityDescription)
+            .lineLimit(50)
+            .fixedSize(horizontal: false, vertical: true)
+            .font(.system(size: 15, weight: .regular))
+            .foregroundColor(.white.opacity(0.92))
+            .lineLimit(3)
+            .multilineTextAlignment(.leading)
             
-            // Description
-            Text(activity.activityDescription)
-                .font(.system(size: 15))
-                .foregroundColor(.white.opacity(0.9))
-                .lineLimit(3)
-            
-            // Infos rapides
-            HStack {
-                Label(activity.activityLocation, systemImage: "mappin.and.ellipse")
-                Spacer()
-                Label(formattedDateTime, systemImage: "clock")
-            }
-            .font(.caption)
-            .foregroundColor(.white.opacity(0.8))
-            
-            // Niveau + Genre
+    }
+   
+    
+
+    
+
+    private var badgesSection: some View {
+        HStack(spacing: 12) {
+            // Niveau
             LevelButton(
                 title: activity.activityLevel.levelName,
                 color: Color(activity.activityLevel.levelColor),
                 isSelected: true
-            ) {
-            }
-
+            ) {}
+            .frame(maxWidth: .infinity)
             
-            
-            HStack(spacing: 4) {
+            // Genre
+            HStack(spacing: 6) {
                 Image(activity.activityGenders.genderLogo)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 18)
+                    .frame(width: 20, height: 20)
+                
                 Text(activity.activityGenders.genderName)
+                    .font(.caption.bold())
             }
             .foregroundColor(.white)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
-            .background(Color.white.opacity(0.2))
-            .cornerRadius(8)
-            
-            Spacer()
-        
-    
-
-            // Bouton Participer
-            Button("Participer") {
-                // Action
-                onDismiss()
-            }
-            .font(.headline)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-            .background(Color.orangePrimary)
-            .foregroundColor(.white)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 7)
+            .background(Color.white.opacity(0.22))
             .cornerRadius(10)
+            .frame(maxWidth: .infinity)
         }
-        .padding(20)
-        .background(
-            Color("bluePrimary")
-                .opacity(0.96)
-                .cornerRadius(20)
-        )
-        .padding(.horizontal, 8)
-        .transition(.move(edge: .bottom).combined(with: .opacity))
     }
-
-
+  
+    
+    private var participateButton: some View {
+        Button("Participer") {
+            // TODO: Logique de participation
+            onDismiss()
+        }
+        .font(.headline)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 14)
+        .background(Color.orangePrimary)
+        .foregroundColor(.white)
+        .cornerRadius(12)
+        .shadow(color: .orangePrimary.opacity(0.3), radius: 4, y: 2)
+    }
+    
+    // MARK: - Formatage Date/Heure
     private var formattedDateTime: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let date = activity.activityDate.map { formatter.string(from: $0) } ?? activity.dateString
+        formatter.dateFormat = "dd/MM"
+        let dateStr = activity.activityDate.map { formatter.string(from: $0) } ?? activity.dateString
+        
         let hours = activity.activityStartTime / 100
         let minutes = activity.activityStartTime % 100
-        return "\(date) à \(String(format: "%02d:%02d", hours, minutes))"
+        return "\(dateStr) à \(String(format: "%02d:%02d", hours, minutes))"
     }
 }
