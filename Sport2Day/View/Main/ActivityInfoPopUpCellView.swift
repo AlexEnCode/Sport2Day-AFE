@@ -11,13 +11,16 @@ struct ActivityInfoPopupCellView: View {
     let activity: Activity
     let onDismiss: () -> Void
 
+    
     var body: some View {
-        VStack(spacing: 18) {
-            headerSection
-            
-            descriptionSection
-            
-
+        
+        NavigationStack{
+            VStack(spacing: 18) {
+                headerSection
+                
+                descriptionSection
+                
+                
                 VStack( spacing: 16) {
                     HStack{
                         Image(systemName: "mappin.and.ellipse")
@@ -35,19 +38,20 @@ struct ActivityInfoPopupCellView: View {
                             .foregroundStyle(.whitePrimary)
                         Spacer()
                     }
-
+                    
                 }
-        //    Label(formattedDateTime, systemImage: "clock")
-        //                          .foregroundColor(.orangePrimary)
-            
-            badgesSection
-            
-            Spacer(minLength: 12)
-            
-            participateButton
+                //    Label(formattedDateTime, systemImage: "clock")
+                //                          .foregroundColor(.orangePrimary)
+                
+                badgesSection
+                
+                Spacer(minLength: 12)
+                
+                participateButton
+            }
+            .padding(20)
+            .multilineTextAlignment(.leading)
         }
-        .padding(20)
-        .multilineTextAlignment(.leading)
     }
     
     private var headerSection: some View {
@@ -118,17 +122,18 @@ struct ActivityInfoPopupCellView: View {
   
     
     private var participateButton: some View {
-        Button("Participer") {
-            // TODO: Logique de participation
-            onDismiss()
+        NavigationLink{
+            RulesPopUpView()
+        } label: {
+            Text("Participer")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(Color.orangePrimary)
+                .foregroundColor(.white)
+                .cornerRadius(12)
+                .shadow(color: .orangePrimary.opacity(0.3), radius: 4, y: 2)
         }
-        .font(.headline)
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .background(Color.orangePrimary)
-        .foregroundColor(.white)
-        .cornerRadius(12)
-        .shadow(color: .orangePrimary.opacity(0.3), radius: 4, y: 2)
     }
     
     // MARK: - Formatage Date/Heure

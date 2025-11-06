@@ -15,12 +15,12 @@ struct ActivityListCellView: View {
                         
                         
                         HStack(spacing: 12) {
-                            FilterButton(title: "Déjà créées", isSelected: selectedTab == 0) {
-                                selectedTab = 0
+                            FilterButton(title: "Déjà créées", isSelected: selectedTab == 1) {
+                                selectedTab = 1
                             }
                             
-                            FilterButton(title: "Réservées", isSelected: selectedTab == 1) {
-                                selectedTab = 1
+                            FilterButton(title: "Réservées", isSelected: selectedTab == 0) {
+                                selectedTab = 0
                             }
                             
                             FilterButton(title: "Passées", isSelected: selectedTab == 2) {
@@ -31,9 +31,9 @@ struct ActivityListCellView: View {
                         
                         Group {
                             if selectedTab == 0 {
-                                UserCreatedView(sampleActivities: Array(sampleActivities.prefix(2)))
+                                UserBookedActivityView(sampleActivities: Array(sampleActivities.prefix(2)))
                             } else if selectedTab == 1 {
-                                UserBookedActivityView(sampleActivities: Array(sampleActivities.prefix(1)))
+                                UserCreatedView(sampleActivities: Array(sampleActivities.prefix(1)))
                             } else {
                                 UserPastActivityView(sampleActivities: Array(sampleActivities.prefix(5)))
                             }

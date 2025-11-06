@@ -23,23 +23,42 @@ struct MainTabView: View {
 }
 
 
-
-
+// enum TabSelection {
+//    case MapView(),
+//    case ActivityListCellView(),
+//    case UserProfilView()
+//
+//}
 
 // Vue principale avec le TabView
 struct MainContentView: View {
     let currentUser: User
     
+    
+    @State  var selectedTab: Int = 0
+    
+    
     var body: some View {
-        TabView {
+        
+        TabView (selection: $selectedTab){
             MapView()
                 .tabItem { Label("Carte", systemImage: "mappin.circle.fill") }
-            
+                .tag(0)
             ActivityListCellView()
                 .tabItem { Label("Activités", systemImage: "book.fill") }
+                .tag(1)
             
             UserProfilView()
                 .tabItem { Label("Profil", systemImage: "person.crop.circle") }
+                .tag(2)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .switchToTab)) { notification in
+            if let tabIndex = notification.object as? Int {
+                selectedTab = tabIndex
+            }
         }
     }
+}
+extension Notification.Name {
+    static let switchToTab = Notification.Name("switchToTab")
 }

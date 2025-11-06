@@ -4,6 +4,7 @@ import SwiftUI
 
 struct ActivityInfoView: View {
     
+    
     @ViewBuilder
     private var organizerProfileView: some View {
         switch activity.activityOrganizer.userName.lowercased() {
@@ -175,9 +176,9 @@ struct ActivityInfoView: View {
                     Spacer()
                     
                     // Bouton Participer
-                    Button(action: {
-                        // Action participation et renvoi vers la page correspondante
-                    }) {
+                    NavigationLink{
+                        RulesPopUpView()
+                    } label: {
                         Text("Participer")
                             .font(.system(size: 18, weight: .bold))
                             .frame(maxWidth: .infinity)
@@ -191,13 +192,16 @@ struct ActivityInfoView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
                 .padding(.bottom, 250)
+                
             }
+
         }
+
     }
 }
 
-#Preview {
-    NavigationView {
-        ActivityInfoView(activity: sampleActivities[0])
-    }
-}
+//#Preview {
+//    NavigationView {
+//        ActivityInfoView(activity: sampleActivities[0])
+//    }
+//}
