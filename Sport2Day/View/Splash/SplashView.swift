@@ -11,10 +11,13 @@ struct SplashView: View {
     var body: some View {
         
         ZStack {
+            Color(.bluePrimary)
+                .ignoresSafeArea()
             
             Image("splashScreen")
                 .resizable()
                 .ignoresSafeArea()
+        
             
             VStack (spacing:20) {
                 

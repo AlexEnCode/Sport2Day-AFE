@@ -139,23 +139,23 @@ var activityPreview = Activity(
         
     return [
         Activity(activityOrganizer: user2, activityLocation: "4 rue Gobert - Lille", activitySport: sport1,
-                 dateString: "04-11-2025", activityStartTime: 1600, activityEndTime: 1800,
+                 dateString: "08-11-2025", activityStartTime: 1600, activityEndTime: 1800,
                  activityGenders: gender2, activityHandi: false, activityLevel: level2,
                  activityDescription: "Basket entre amis et pour plus de fun n'oubliez pas de ramener d'autres personnes !", activityPlayers: 4),
         Activity(activityOrganizer: user, activityLocation: "5 rue du Stade - Lille", activitySport: sport2,
-                 dateString: "06-11-2025", activityStartTime: 1830, activityEndTime: 2030,
+                 dateString: "08-11-2025", activityStartTime: 1830, activityEndTime: 2030,
                  activityGenders: gender, activityHandi: false, activityLevel: level,
                  activityDescription: "Petit foot du soir tous ensemble dans la convivialité, bien sur pas de tricheur ;)", activityPlayers: 6),
         Activity(activityOrganizer: user3, activityLocation: "Parc de la Citadelle", activitySport: sport3,
-                         dateString: "01-10-2025", activityStartTime: 900, activityEndTime: 1000,
+                         dateString: "08-11-2025", activityStartTime: 900, activityEndTime: 1000,
                          activityGenders: gender3, activityHandi: false, activityLevel: level3,
                          activityDescription: "Footing collectif du dimanche, niveau avancé recommandé pour cette course !", activityPlayers: 5),
         Activity(activityOrganizer: user4, activityLocation: "Gymnase Central - Lyon", activitySport: sport4,
-                        dateString: "05-11-2025", activityStartTime: 1900, activityEndTime: 2100,
+                        dateString: "08-11-2025", activityStartTime: 1900, activityEndTime: 2100,
                         activityGenders: gender3, activityHandi: false, activityLevel: level3,
                         activityDescription: "Match amical de volley histoire de s'entrainer comme il faut et profiter de la bonne ambiance !", activityPlayers: 5),
                Activity(activityOrganizer: user5, activityLocation: "Salle UrbanFit - Lyon", activitySport: sport5,
-                        dateString: "07-11-2025", activityStartTime: 1700, activityEndTime: 1830,
+                        dateString: "08-11-2025", activityStartTime: 1700, activityEndTime: 1830,
                         activityGenders: gender4, activityHandi: false, activityLevel: level,
                         activityDescription: "Séance fitness ouverte à tous prenez votre ballon pour que l'echauffement soit plus simple.", activityPlayers: 3)
             

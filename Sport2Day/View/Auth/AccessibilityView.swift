@@ -117,6 +117,8 @@ struct AccessibilityView: View {
                                     Text(accessibility.description)
                                         .font(.system(size: 12))
                                         .foregroundColor(.whitePrimary)
+                                        .lineLimit(nil)
+                                        .fixedSize(horizontal: false, vertical: true)
                                     
                                     Spacer()
                                 }
